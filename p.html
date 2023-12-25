@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="おぱんつ">
+  <meta property="og:title" content="ページのタイトル">
+  <meta property="og:description" content="おぱんつ">
+  <meta property="og:image" content="https://github.com/Nbonbo7/ww/blob/main/img/nyo.png">
+  <link rel="shortcut icon" href="/img/nyon.ico" type="image/x-icon">
+  
+  <title>パ算</title>
+  <style>
+body[theme="d"]{--m-bg:#222831;--d-color:#EEE}body[theme="l"]{--m-bg:#EEE;--d-color:#222831}body{background:var(--m-bg);color:var(--d-color);transition:background-color 1s,color 1s}#ihadgsopxf{align-items:center;display:flex;flex-wrap:wrap;justify-content:center;text-align:center;width:38%;padding-top:32px;margin:auto}.xdklqezisa{display:flex;align-items:center;flex-direction:column;justify-content:center;padding:5px}@media (max-width:500px){#ihadgsopxf{align-items:center;display:flex;flex-wrap:wrap;justify-content:center;text-align:center;width:100%;margin:auto}.xdklqezisa{display:flex;align-items:center;flex-direction:column;justify-content:center;padding:5px}}.xdklqezisa-b{display:flex}.elmbjsnrno{width:5rem;text-align:center;margin:5px}.girdsrpxru{align-items:center;display:flex;justify-content:center;margin:.5rem}button{background-color:#00ADB5;border:none;border-radius:8px;color:#fff;cursor:pointer;display:block;margin:0 auto;padding:10px;user-select:none}button:hover{background-color:#007b81}#result{text-align:center}.wfqosxhmwa{margin:2px;height:32px;width:31px}input[inputmode=numeric]{appearance:auto;background-color:#EEE;border-color:#00ADB5;border-radius:8px;border-style:inset;border-width:2px;color:fieldtext;cursor:text;display:inline-block;height:26px;letter-spacing:normal;line-height:normal;-webkit-rtl-ordering:logical;text-align:center;text-indent:0;text-rendering:auto;text-shadow:none;text-transform:none;width:26px;word-spacing:normal}.dzwpfwtscd{display:block;position:fixed;margin:5px;width:16px;height:16px;background-image:url(img/icon/129.png);background-size:cover;border-radius:50%;border:2px solid #00ADB5;cursor:pointer}.dzwpfwtscd:active{border:2px solid #007b81}
+  </style>
+</head>
+<body theme="l">
+
+  <dev class="dzwpfwtscd" id="thch"></dev>
+
+  <div id="ihadgsopxf"></div>
+
+  <div class="xdklqezisa">
+    <div class="xdklqezisa-b">
+  <button class="elmbjsnrno" onclick="calculateMultiplier()">計算</button>
+  <button class="elmbjsnrno" onclick="vegeta()">ベジータ</button>
+    </div>
+  <p id="result">倍率: 1.0</p>
+</div>
+
+  <script>
+document.addEventListener("DOMContentLoaded",()=>generateihadgsopxf());function generateihadgsopxf(){const ihadgsopxfContainer=document.getElementById("ihadgsopxf")
+  const awakeningSkills = [{"id":43,"name":"コンボ強化","kunliitdgf":2,"rfiwvjvotwb":null},{"id":107,"name":"コンボ強化＋","kunliitdgf":4,"rfiwvjvotwb":43},{"id":61,"name":"超コンボ強化","kunliitdgf":5,"rfiwvjvotwb":null},{"id":111,"name":"超コンボ強化＋","kunliitdgf":25,"rfiwvjvotwb":61},{"id":27,"name":"2体攻撃","kunliitdgf":1.7,"rfiwvjvotwb":null},{"id":96,"name":"2体攻撃＋","kunliitdgf":3.4,"rfiwvjvotwb":27},{"id":57,"name":"50以上強化HP","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":58,"name":"50以下強化HP","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":48,"name":"ダメージ無効貫通","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":109,"name":"ダメージ無効貫通＋","kunliitdgf":12.25,"rfiwvjvotwb":48},{"id":60,"name":"L字攻撃","kunliitdgf":2.2,"rfiwvjvotwb":null},{"id":108,"name":"L字攻撃＋","kunliitdgf":4.84,"rfiwvjvotwb":60},{"id":59,"name":"L字軽減回復","kunliitdgf":1.5,"rfiwvjvotwb":null},{"id":126,"name":"T字消し攻撃","kunliitdgf":4,"rfiwvjvotwb":null},{"id":50,"name":"超追加攻撃","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":71,"name":"お邪魔ドロップの加護","kunliitdgf":2,"rfiwvjvotwb":null},{"id":72,"name":"毒ドロップの加護","kunliitdgf":2,"rfiwvjvotwb":null},{"id":78,"name":"十字消し攻撃","kunliitdgf":3,"rfiwvjvotwb":null},{"id":110,"name":"十字消し攻撃＋","kunliitdgf":9,"rfiwvjvotwb":78},{"id":79,"name":"3色攻撃強化","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":112,"name":"3色攻撃強化＋","kunliitdgf":6.25,"rfiwvjvotwb":79},{"id":80,"name":"4色攻撃強化","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":113,"name":"4色攻撃強化＋","kunliitdgf":12.25,"rfiwvjvotwb":80},{"id":81,"name":"5色攻撃強化","kunliitdgf":4.5,"rfiwvjvotwb":null},{"id":114,"name":"5色攻撃強化＋","kunliitdgf":20.25,"rfiwvjvotwb":81},{"id":82,"name":"超つなげ消し強化","kunliitdgf":12,"rfiwvjvotwb":null},{"id":128,"name":"陽の加護","kunliitdgf":5,"rfiwvjvotwb":null},{"id":129,"name":"陰の加護","kunliitdgf":5,"rfiwvjvotwb":null}]
+awakeningSkills.forEach(skill=>{const div=document.createElement("div");div.innerHTML=`<div class="girdsrpxru"><div style='background-image: url("/img/icon/${skill.id}.png");' class="wfqosxhmwa"></div> <input type="number" inputmode="numeric" pattern="^[0-9]+$" class="awakening-input" id="${skill.id}" placeholder="0"></div>`;ihadgsopxfContainer.appendChild(div)})} function calculateMultiplier(){let totalMultiplier=1
+  const awakeningSkills = [{"id":43,"name":"コンボ強化","kunliitdgf":2,"rfiwvjvotwb":null},{"id":107,"name":"コンボ強化＋","kunliitdgf":4,"rfiwvjvotwb":43},{"id":61,"name":"超コンボ強化","kunliitdgf":5,"rfiwvjvotwb":null},{"id":111,"name":"超コンボ強化＋","kunliitdgf":25,"rfiwvjvotwb":61},{"id":27,"name":"2体攻撃","kunliitdgf":1.7,"rfiwvjvotwb":null},{"id":96,"name":"2体攻撃＋","kunliitdgf":3.4,"rfiwvjvotwb":27},{"id":57,"name":"50以上強化HP","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":58,"name":"50以下強化HP","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":48,"name":"ダメージ無効貫通","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":109,"name":"ダメージ無効貫通＋","kunliitdgf":12.25,"rfiwvjvotwb":48},{"id":60,"name":"L字攻撃","kunliitdgf":2.2,"rfiwvjvotwb":null},{"id":108,"name":"L字攻撃＋","kunliitdgf":4.84,"rfiwvjvotwb":60},{"id":59,"name":"L字軽減回復","kunliitdgf":1.5,"rfiwvjvotwb":null},{"id":126,"name":"T字消し攻撃","kunliitdgf":4,"rfiwvjvotwb":null},{"id":50,"name":"超追加攻撃","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":71,"name":"お邪魔ドロップの加護","kunliitdgf":2,"rfiwvjvotwb":null},{"id":72,"name":"毒ドロップの加護","kunliitdgf":2,"rfiwvjvotwb":null},{"id":78,"name":"十字消し攻撃","kunliitdgf":3,"rfiwvjvotwb":null},{"id":110,"name":"十字消し攻撃＋","kunliitdgf":9,"rfiwvjvotwb":78},{"id":79,"name":"3色攻撃強化","kunliitdgf":2.5,"rfiwvjvotwb":null},{"id":112,"name":"3色攻撃強化＋","kunliitdgf":6.25,"rfiwvjvotwb":79},{"id":80,"name":"4色攻撃強化","kunliitdgf":3.5,"rfiwvjvotwb":null},{"id":113,"name":"4色攻撃強化＋","kunliitdgf":12.25,"rfiwvjvotwb":80},{"id":81,"name":"5色攻撃強化","kunliitdgf":4.5,"rfiwvjvotwb":null},{"id":114,"name":"5色攻撃強化＋","kunliitdgf":20.25,"rfiwvjvotwb":81},{"id":82,"name":"超つなげ消し強化","kunliitdgf":12,"rfiwvjvotwb":null},{"id":128,"name":"陽の加護","kunliitdgf":5,"rfiwvjvotwb":null},{"id":129,"name":"陰の加護","kunliitdgf":5,"rfiwvjvotwb":null}]
+awakeningSkills.forEach(skill=>{const awakeningCount=parseInt(document.getElementById(skill.id.toString()).value)||0;totalMultiplier+=Math.pow(skill.kunliitdgf,awakeningCount)});const result=(totalMultiplier-28).toFixed(1);document.getElementById("result").innerHTML=`倍率: ${result}`}</script><script>document.getElementById("thch").addEventListener("click",function(){var theme=document.body.getAttribute("theme");if(theme==="l"){document.body.setAttribute("theme","d")}else{document.body.setAttribute("theme","l")} localStorage.setItem("theme",document.body.getAttribute("theme"))});const savedTheme=localStorage.getItem("theme");if(savedTheme){document.body.setAttribute("theme",savedTheme)}else{if(window.matchMedia("(prefers-color-scheme: dark)").matches){document.body.setAttribute("theme","l")}else{document.body.setAttribute("theme","d")}}</script><script>function vegeta(){const ihadgsopxf=document.querySelectorAll('.awakening-input');ihadgsopxf.forEach(input=>{input.value=''});calculateMultiplier()}
+</script>
+</body>
+</html>
+<!-- エクスプロージョン！ -->
