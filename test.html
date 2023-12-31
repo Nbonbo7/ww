@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF8">
+    <title>聖遺物</title>
+  </head>
+  <style>
+
+html {
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJwAABCcASbNOjQAAATCSURBVEhL7VZLbxtVFD5j52EcN06ctkJxS2gRFc+ERGSBkFhQFCGWmH2jQAUSLJAQC4SibuAXIEBIRSBVQiyomoYU9ZHSlLSlEUppRNzUceIXsZXmYXvGb8+L74w9YRwmpUKUFV/0ZebOPfd895xzz00IEOr8T+AEd7nd5JNlcuBdA3WeuF9gESUQCPjHx08GBgYGHsK4E3TX5+5L9I6urq7u5aXZU9nM2tz09PR7Q0NDffj+INgBtrAN+K+Kt391/JNAPpdQZFnSqtWqFIlEvpuYmHhzeHh4wOfz+WHD4i6wCTQ38I/RMjjYe2hlJRiUxKiuyDmdoQKSJC1D/MTY2NjRkZGRZzs7Ozntu0EvuAt8gNeDvBE+E7wZKxtg7pIn9kxNnXlnoP+pDyEltHn2kNPpMSZZHA9VluUikEilUrPpdPp2PB6PhsPh9VAolEkkEsVcLicriqIiQxps9FKpVMS6DLtgP1awoGd09P3DmxtLaTET1cXsko70GpHaQQM4AwD8V5EIKba5uXljdTV1JTz/7cnDL+x7Gj7bwB1T3+z3+x+NxeZ+lMSYnsks69nM4lZ67w2arokXtdD3z52Av/1gK9iQVutASyaT2UgkPkWCoAmCA3kQKJdPkSJLdZO7AVkTL1J19mh6/PTPp/GhVPvYCKsgT5YmJs5eFQRnURAE6AqEPVM+HyE9e4GosoJt2flhsUnSb76uJ+ORmeNnKYSPldpEo7E1v/ze7PV6/QsL1095PO4+TVdxYGTS1QJ54m9RcyWJxtiHawHl8fTivQfnEge1miBaPEaqGK+OXaNjr31M38DXOlgFVXAL2yNURVEsxOO//8QpNaLkH4eLVHc/nKdQlRmiwpdEqXeJwq8S/fYyUegNrI6T0kSFmSDNww+nwfaabCgowAby4mL0F8GBOrIYhKEIQUSloc24/f0w64Y/AZuvIAhZMRaXdcpeukV38MqR3bNgdXJyKgpvipFk0CHopLoOkq6ht9k3u1oFC2BznbDTBSqtZqmMkSn2t4IMJZVKipVKOc0DTit+kdDkwxOeWRBnh3IgH3qTvDknOZv5zrkL7CJUE4lYQRLzG/yB9RyGs1ZEgKuUI8uDfJGZ5AjxbHJQ2+DD1I6RXSAG7Ca0jY2crJOyKiCVvAcjL0YtEQpXh29MkxbhVoG8vY8bf2V4hrfJbICdIG6ZjJzP5dADtVJwDZ3Fm6gqrkVeYZLd8ZPdI5XYk6vvAB2qjexhJ8hQcfGij3ScAwgW5sgV/giHEndxfQW3p9HafHA4xaitEzU84KfHvK3GXxDbCHlv28FGLUeOBJ7s7t77oqN4Q2i5/YEqi5GsJOmLwWW6cHmezgSjdOlOhhY8TlKRcqcggwI5kJPSlTk6H18jPnS1mljA2beDVqqUS47yvJz/dTQ0G4yeG79O174+R7F10YjH7DOnz0NtL/XT7uefof1P9NDBvZ3U7XNv/ZfQIMb4S8h1tH/x2duvPNIe7vn08/OXf7hK68geJ497jK8qJjvj9ebxMToS6WwtV0iH/RrGZk9uYSfBjg6Xy1stlyuoGl9TZruzUO0k/Qn2YSWD5+1sdxTkorMxk214kbnYpBVWMYZ1vsF2J0G779tF/ocNiP4AwdNrQzyTl1YAAAAASUVORK5CYII=),auto;
+    background-color: #1a1d23;
+    color: #f2f2f2;
+}
+
+.artifact_box{
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+    margin: 8px 20px;
+    width: 40%;
+    max-width: 430px;
+    min-width: 290px;
+    background: #272935;
+    background: linear-gradient(315deg,#272935,#232e46);
+    background: -moz-linear-gradient(315deg,#272935 0%,#232E46 100%);
+    background: -webkit-linear-gradient(315deg,#272935 0%,#232E46 100%);
+}
+
+.box_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-right: 22px;
+    text-align: center;
+}
+
+.box_right {
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+    .artifact_img{
+        width: 80px;
+    pointer-events: none;
+}
+
+.star_img{
+        width: 80px;
+    pointer-events: none;
+}
+
+</style>
+</head>
+<body>
+
+    <label for="uid">UID:</label>
+    <input id="uid" type="text" placeholder="UID">
+  
+    <button onclick="fetchReliquaryInfo()">取得</button>
+  
+    <div id="reliquaryContainer"></div>
+
+  <script>
+const propIdMap = {
+    'FIGHT_PROP_BASE_ATTACK': '基礎攻撃力',
+    'FIGHT_PROP_HP': 'HP',
+    'FIGHT_PROP_ATTACK': '攻撃力',
+    'FIGHT_PROP_DEFENSE': '防御力',
+    'FIGHT_PROP_HP_PERCENT': 'HP%',
+    'FIGHT_PROP_ATTACK_PERCENT': '攻撃力%',
+    'FIGHT_PROP_DEFENSE_PERCENT': '防御力%',
+    'FIGHT_PROP_CRITICAL': '会心率',
+    'FIGHT_PROP_CRITICAL_HURT': '会心ダメージ',
+    'FIGHT_PROP_CHARGE_EFFICIENCY': '元素チャージ効率',
+    'FIGHT_PROP_HEAL_ADD': '与える治癒効果',
+    'FIGHT_PROP_ELEMENT_MASTERY': '元素熟知',
+    'FIGHT_PROP_PHYSICAL_ADD_HURT': '物理ダメージ',
+    'FIGHT_PROP_FIRE_ADD_HURT': '炎元素ダメージ',
+    'FIGHT_PROP_ELEC_ADD_HURT': '雷元素ダメージ',
+    'FIGHT_PROP_WATER_ADD_HURT': '水元素ダメージ',
+    'FIGHT_PROP_WIND_ADD_HURT': '風元素ダメージ',
+    'FIGHT_PROP_ICE_ADD_HURT': '氷元素ダメージ',
+    'FIGHT_PROP_ROCK_ADD_HURT': '岩元素ダメージ',
+    'FIGHT_PROP_GRASS_ADD_HURT': '草元素ダメージ'
+};
+
+function fetchReliquaryInfo() {
+      const uid = document.getElementById("uid").value;
+      document.getElementById("reliquaryContainer").innerHTML = "";
+
+      fetch(`https://enka.network/api/uid/${uid}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTPエラー! ステータスコード: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const equipList = data.avatarInfoList[0].equipList;
+
+        equipList.forEach(item => {
+            const reliquarySubstats = item.flat.reliquarySubstats.map(stat => `${propIdMap[stat.appendPropId]}: ${stat.statValue}`).join(', ');
+            const reliquaryMainstat = {
+                mainPropId: propIdMap[item.flat.reliquaryMainstat.mainPropId],
+                statValue: item.flat.reliquaryMainstat.statValue
+            };
+            const level = item.reliquary.level;
+            const rankLevel = item.flat.rankLevel;
+            const icon = item.flat.icon;
+            const staricon = rankLevel === 5 ? 'Star5' : rankLevel;
+
+            const divElement = document.createElement('div');
+
+            divElement.innerHTML = `
+                <div class="artifact_box">
+                    <div class="box_left">
+                        <img class="artifact_img" src="https://enka.network/ui/${icon}.png"></img>
+                        <img class="star_img" src="${staricon}.png"></img>
+                        <span>Level: ${level}</span>
+                        <span>${reliquaryMainstat.mainPropId}</span><span>${reliquaryMainstat.statValue}</span>
+                    </div>
+                    <div class="box_right">
+                        <p>Reliquary Substats: ${reliquarySubstats}</p>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(divElement);
+        });
+    })
+    .catch(error => {
+        if (error.message.includes("400")) {
+            console.error("エラー: UIDのフォーマットが合っていません");
+        } else if (error.message.includes("404")) {
+            console.error("エラー: 対象のプレイヤーが存在しません");
+        } else if (error.message.includes("424")) {
+            console.error("エラー: ゲームメンテナンス中またはアップデート後にシステムが影響を受けました");
+        } else if (error.message.includes("429")) {
+            console.error("エラー: レート制限に達しました");
+        } else if (error.message.includes("500")) {
+            console.error("エラー: EnkaNetWorkサーバーでエラーが発生しました");
+        } else if (error.message.includes("503")) {
+            console.error("エラー: EnkaNetWorkサーバーが一時停止中です");
+        } else {
+            console.error("未知のエラーが発生しました:", error.message);
+        }
+    });
+}
+
+    </script>
+</body>
+</html>
