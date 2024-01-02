@@ -91,7 +91,7 @@ function fetchReliquaryInfo() {
       const uid = document.getElementById("uid").value;
       document.getElementById("reliquaryContainer").innerHTML = "";
 
-      fetch(`https://enka.network/api/uid/${uid}`)
+      fetch(`https://enka.network/api/uid/${uid}`, { mode: 'no-cors' })
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTPエラー! ステータスコード: ${response.status}`);
