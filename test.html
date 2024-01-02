@@ -91,7 +91,14 @@ function fetchReliquaryInfo() {
       const uid = document.getElementById("uid").value;
       document.getElementById("reliquaryContainer").innerHTML = "";
 
-      fetch(`https://script.google.com/macros/s/AKfycbyGziTpCYV3s7WjEgZoeu05WV_5BW7G40KRBpeUQ3msgWlNKxUE6RM7BlzcUrWEQ2bf/exec`)
+  fetch("https://script.google.com/macros/s/AKfycbyGziTpCYV3s7WjEgZoeu05WV_5BW7G40KRBpeUQ3msgWlNKxUE6RM7BlzcUrWEQ2bf/exec", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*'
+        },
+    })
+    
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTPエラー! ステータスコード: ${response.status}`);
