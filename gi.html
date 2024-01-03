@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おｐｎT</title>
+        <meta name="description" content="おぱんつ">
+        <meta property="og:title" content="パんつ">
+        <meta property="og:description" content="おぱんつ">
+        <meta property="og:image" content="https://raw.githubusercontent.com/Nbonbo7/ww/main/img/nyo.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="パんつ">
+        <meta name="twitter:description" content="おぱんつ">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/Nbonbo7/ww/main/img/nyo.png">
+  <link rel="shortcut icon" href="./img/nyon.ico" type="image/x-icon">
+  </head>
+  <style>
+
+html {
+        background-color: #1a1d23;
+    color: #f2f2f2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+body {
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    justify-content: center;
+}
+
+.main{
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 15px 0;
+    box-sizing: border-box;
+}
+
+ .uid_container{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 10px;
+}
+
+input[type=text]{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    background: transparent;
+    color: rgb(242, 242, 242);
+    cursor: text;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    border-radius: 6px;
+    padding-right: 16px;
+    flex-direction: column;
+    min-width: 0px;
+    margin: 0px 15px 0px 0px;
+    border: 0px;
+    border-color: #f2f2f2;
+    vertical-align: top;
+    max-width: 160px;
+    height: 1.4375em;
+    width: 100%;
+    padding: 16.5px 0px 16.5px 14px;
+}
+
+input[type=number]{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    background: transparent;
+    color: rgb(242, 242, 242);
+    cursor: text;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    border-radius: 6px;
+    padding-right: 16px;
+    flex-direction: column;
+    min-width: 0px;
+    margin: 0px 15px 0px 0px;
+    border: 0px;
+    border-color: #f2f2f2;
+    vertical-align: top;
+    max-width: 32px;
+    max-height: 32px;
+    width: 100%;
+    padding: 16.5px 0px 16.5px 14px;
+}
+
+button{
+    color: rgb(255, 255, 255);
+    background-color: rgb(222, 183, 108);
+    padding: 16px;
+    outline: 0px;
+    border: 0px;
+    border-radius: 16px;
+    min-width: 70px;
+}
+
+button:hover {
+    background-color: rgb(200, 160, 85);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: rgb(180, 140, 65);
+}
+
+#yammyButton{
+    color: #f2f2f2cc;
+    background-color: rgb(80, 80, 80);
+    padding: 16px;
+    outline: 0px;
+    border: 0px;
+    border-radius: 16px;
+    min-width: 70px;
+    cursor: unset;
+}
+
+.artifact_box {
+    width: 30%;
+    margin: 10px;
+}
+
+.artifact_con {
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+    margin: 8px;
+    min-width: 300px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    max-width: 450px;
+    background: #272935;
+    background: linear-gradient(315deg, #272935, #232e46);
+    background: -moz-linear-gradient(315deg, #272935 0%, #232E46 100%);
+    background: -webkit-linear-gradient(315deg, #272935 0%, #232E46 100%);
+    box-sizing: border-box;
+}
+
+.box_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-right: 22px;
+    text-align: center;
+    border-right: 1px solid #f2f2f2aa;
+}
+
+.box_right {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_right br {
+margin: 1.5rem;
+}
+
+    .artifact_img{
+        width: 80px;
+    pointer-events: none;
+}
+
+.star_img{
+        width: 80px;
+    pointer-events: none;
+}
+
+@media screen and (max-width:440px){
+    .artifact_box {
+        width: 95%;
+        margin: 5px;
+    }
+    .artifact_con {
+    aspect-ratio: 6/3;
+}
+.star_img{
+        width: 80px;
+    pointer-events: none;
+    margin: -3px;
+}
+}
+
+</style>
+</head>
+<body>
+    <div class="main">
+        <div class="uid_container">
+            <input id="uid" type="text" placeholder="UID" oninput="checkUidLength()" maxlength="9">
+            <button id="yamiButton" onclick="fetchReliquaryInfo()" style="display: none;">ぽち</button>
+            <button id="yammyButton" disabled style="display: block;">ぽち</button>
+        </div>
+
+        <div id="avatarIconsContainer"></div>
+        <div id="reliquaryContainer"></div>
+        <input id="character" type="number" placeholder="0~7" oninput="characterId()" maxlength="1"/>
+    </div>
+
+
+    
+    <script>
+    function checkUidLength() {
+      var uidInput = document.getElementById('uid');
+      var submitButton = document.getElementById('yamiButton');
+      var dummyButton = document.getElementById('yammyButton');
+
+      if (/^\d{9}$/.test(uidInput.value)) {
+        submitButton.style.display = 'block';
+        dummyButton.style.display = 'none';
+      } else {
+        submitButton.style.display = 'none';
+        dummyButton.style.display = 'block';
+      }
+    }
+  </script>
+
+<script>
+const propIdMap = {
+    'FIGHT_PROP_BASE_ATTACK': '基礎攻撃力',
+    'FIGHT_PROP_HP': 'HP',
+    'FIGHT_PROP_ATTACK': '攻撃力',
+    'FIGHT_PROP_DEFENSE': '防御力',
+    'FIGHT_PROP_HP_PERCENT': 'HP%',
+    'FIGHT_PROP_ATTACK_PERCENT': '攻撃力%',
+    'FIGHT_PROP_DEFENSE_PERCENT': '防御力%',
+    'FIGHT_PROP_CRITICAL': '会心率',
+    'FIGHT_PROP_CRITICAL_HURT': '会心ダメージ',
+    'FIGHT_PROP_CHARGE_EFFICIENCY': '元素チャージ効率',
+    'FIGHT_PROP_HEAL_ADD': '与える治癒効果',
+    'FIGHT_PROP_ELEMENT_MASTERY': '元素熟知',
+    'FIGHT_PROP_PHYSICAL_ADD_HURT': '物理ダメージ',
+    'FIGHT_PROP_FIRE_ADD_HURT': '炎元素ダメージ',
+    'FIGHT_PROP_ELEC_ADD_HURT': '雷元素ダメージ',
+    'FIGHT_PROP_WATER_ADD_HURT': '水元素ダメージ',
+    'FIGHT_PROP_WIND_ADD_HURT': '風元素ダメージ',
+    'FIGHT_PROP_ICE_ADD_HURT': '氷元素ダメージ',
+    'FIGHT_PROP_ROCK_ADD_HURT': '岩元素ダメージ',
+    'FIGHT_PROP_GRASS_ADD_HURT': '草元素ダメージ'
+};
+
+const charactersJsonUrl = 'character.json';
+const avatarDataUrl = 'https://script.google.com/macros/s/AKfycbyGziTpCYV3s7WjEgZoeu05WV_5BW7G40KRBpeUQ3msgWlNKxUE6RM7BlzcUrWEQ2bf/exec';
+
+function displayAvatarIcons(characterData, avatarData) {
+  const container = document.getElementById('avatarIconsContainer');
+
+  avatarData.avatarInfoList.forEach(avatar => {
+    const characterInfo = characterData[avatar.avatarId.toString()];
+
+    if (characterInfo) {
+      const iconSrc = `https://enka.network/ui/${characterInfo.iconName}.png`;
+
+      const imgElement = document.createElement('div');
+      imgElement.style.backgroundImage = `url(${iconSrc})`;
+      imgElement.className = 'avataricon';
+
+      container.appendChild(imgElement);
+    }
+  });
+}
+
+const characterIdInput = document.getElementById('character');
+
+function characterId() {
+    characterIdValue = characterIdInput.value;
+}
+
+function fetchReliquaryInfo() {
+    const uid = document.getElementById("uid").value;
+    document.getElementById("reliquaryContainer").innerHTML = "";
+    fetch(avatarDataUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'uid=' + uid
+    })
+    .then(response => response.json())
+    .then(data => {
+        const equipList = data.avatarInfoList[characterIdValue].equipList;
+        const existingBoxes = document.querySelectorAll('.artifact_box');
+        existingBoxes.forEach(box => box.remove());
+
+        equipList.forEach(item => {
+            const reliquarySubstats = item.flat.reliquarySubstats.map(stat => `${propIdMap[stat.appendPropId]}：${stat.statValue}`).join('<br>');
+            const reliquaryMainstat = {
+                mainPropId: propIdMap[item.flat.reliquaryMainstat.mainPropId],
+                statValue: item.flat.reliquaryMainstat.statValue
+            };
+            const level = item.reliquary.level;
+            const rankLevel = item.flat.rankLevel;
+            const icon = item.flat.icon;
+                const staricon = rankLevel === rankLevel ? `${rankLevel}` : rankLevel;
+
+                const divElement = document.createElement('div');
+            divElement.className = "artifact_box";
+            document.body.appendChild(divElement);
+
+            divElement.innerHTML = `
+            <div class="artifact_con">
+        <div class="box_left">
+            <img class="artifact_img" src="https://enka.network/ui/${icon}.png"></img>
+            <img class="star_img" src="./img/star/Star${staricon}.png"></img>
+            <span>Lv. ${level}</span>
+            <span>${reliquaryMainstat.mainPropId}</span><span>${reliquaryMainstat.statValue}</span>
+        </div>
+        <div class="box_right">
+            <span>${reliquarySubstats}</span>
+        </div>
+    </div>
+`;
+});
+})
+.catch(error => {
+if (error.message.includes("400")) {
+console.error("エラー: UIDのフォーマットが合っていません");
+} else if (error.message.includes("404")) {
+console.error("エラー: 対象のプレイヤーが存在しません");
+} else if (error.message.includes("424")) {
+console.error("エラー: ゲームメンテナンス中またはアップデート後にシステムが影響を受けました");
+} else if (error.message.includes("429")) {
+console.error("エラー: レート制限に達しました");
+} else if (error.message.includes("500")) {
+console.error("エラー: EnkaNetWorkサーバーでエラーが発生しました");
+} else if (error.message.includes("503")) {
+console.error("エラー: EnkaNetWorkサーバーが一時停止中です");
+} else {
+console.error("未知のエラーが発生しました:", error.message);
+}
+});
+}
+
+    </script>
+
+</body>
+</html>
