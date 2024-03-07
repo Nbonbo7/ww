@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEXA</title>
+<meta name="description" content="PEXA">
+<meta property="og:title" content="PEXA" />
+<meta property="og:description" content="PEXA">
+<meta property="og:image" content="https://media.contentapi.ea.com/content/dam/apex-legends/common/breakout-patch-notes/s20-launch-map-worldsedge-r01-v01.png">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PEXA" />
+<meta name="twitter:description" content="PEXA" />
+<link rel="shortcut icon" href="./img/nyon.ico" type="image/x-icon">
+  <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            background-color: #3E4556;
+            color: #FFFAF2;
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: calc(50% - 1rem);
+            height: auto;
+            aspect-ratio: 3/4;
+            border-radius: 18px;
+            background-color: #FFFAF2;
+            color: #3E4556;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .card2 {
+            width: calc(50% - 1rem);
+            height: auto;
+            border-radius: 18px;
+            background-color: #FFFAF2;
+            color: #3E4556;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .s{
+            width: 100%;
+            height: 2px;
+            border-radius: 10px;
+            margin: 2rem 0;
+            background-color:#FFFAF2;
+        }
+
+        .card div {
+            width: 100%;
+            height: 50%;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+            margin-bottom: 10px;
+            border-radius: 18px 18px 0 0;
+        }
+
+        @media only screen and (min-width: 600px) {
+            .card {
+                width: calc(50% - 1rem);
+            }
+        }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <div class="cards">
+      <div class="card">
+        <div :style="{ backgroundImage: 'url(' + rankedMap.current.asset + ')' }"></div>
+        <h2>{{ rankedMap.current.map }}</h2>
+      </div>
+      <div class="card">
+        <div :style="{ backgroundImage: 'url(' + rankedMap.next.asset + ')' }"></div>
+        <h2>{{ rankedMap.next.map }}</h2>
+      </div>
+    </div>
+    <div class="s"></div>
+    <div class="cards">
+      <div class="card">
+        <div :style="{ backgroundImage: 'url(' + battleRoyale.current.asset + ')' }"></div>
+        <h2>{{ battleRoyale.current.map }}</h2>
+      </div>
+      <div class="card">
+        <div :style="{ backgroundImage: 'url(' + battleRoyale.next.asset + ')' }"></div>
+        <h2>{{ battleRoyale.next.map }}</h2>
+      </div>
+    </div>
+    <div class="s"></div>
+    <div class="cards">
+      <div class="card2">
+        <h2>{{ ltm.current.eventName }}</h2>
+      </div>
+      <div class="card2">
+        <h2>{{ ltm.next.eventName }}</h2>
+      </div>
+    </div>
+    <h1>現在のマップ→次のマップ</h1>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+const app = Vue.createApp({
+  data() {
+    return {
+      rankedMap: {
+        current: {
+          map: "",
+          asset: ""
+        },
+        next: {
+          map: "",
+          asset: ""
+        }
+      },
+      battleRoyale: {
+        current: {
+          map: "",
+          asset: ""
+        },
+        next: {
+          map: "",
+          asset: ""
+        }
+      },
+      ltm: {
+        current: {
+          eventName: "",
+        },
+        next: {
+          eventName: "",
+        }
+      }
+    };
+  },
+  mounted() {
+    let ApiKey = "\(ProcessInfo.processInfo.environment["API_KEY"] ?? "")";
+    let mapRotationApiUrl = "https://api.mozambiquehe.re/maprotation?auth="+ApiKey+"&version=1";
+
+    fetch(mapRotationApiUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.rankedMap.current.map = data.ranked.current.map;
+        this.rankedMap.current.asset = data.ranked.current.asset;
+        this.rankedMap.next.map = data.ranked.next.map;
+        this.rankedMap.next.asset = data.ranked.next.asset;
+
+        this.battleRoyale.current.map = data.battle_royale.current.map;
+        this.battleRoyale.current.asset = data.battle_royale.current.asset;
+        this.battleRoyale.next.map = data.battle_royale.next.map;
+        this.battleRoyale.next.asset = data.battle_royale.next.asset;
+
+        this.ltm.current.eventName = data.ltm.current.eventName;
+        this.ltm.next.eventName = data.ltm.next.eventName;
+      })
+      .catch(error => console.error(error));
+  }
+});
+
+app.mount('#app');
+
+  </script>
+</body>
+</html>
