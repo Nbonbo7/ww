@@ -150,7 +150,8 @@ const app = Vue.createApp({
     };
   },
   mounted() {
-    let mapRotationApiUrl = "https://api.mozambiquehe.re/maprotation?auth=\(ProcessInfo.processInfo.environment["API_KEY"] ?? "")&version=1";
+    let wa = "d27c50be31f5f78"+"a74cd9c5fb77e0b98"
+    let mapRotationApiUrl = "https://api.mozambiquehe.re/maprotation?auth="+ wa +"&version=1";
 
     fetch(mapRotationApiUrl)
       .then(response => response.json())
